@@ -49,7 +49,7 @@
             </div>
             <!-- banner -->
             <div id="top-banner-wrap">
-                <div id="top-banner" ng-controller="BannerController as bannerCtrl">
+                <div id="top-banner " class="form" ng-controller="BannerController as bannerCtrl">
                     <h1>{{bannerCtrl.info.heading}}</h1>
                     <p class="you-need">Что для этого надо?</p>
                     <div class="we-got">
@@ -101,6 +101,19 @@
                     </li>
                     <button class="showMore" ng-click="testimonialsCtrl.changeQuantity()">{{testimonialsCtrl.moreQuantityText}}</button>
                 </ul>
+            </section>
+
+            <section id="single-form-second" class="common-section form"  ng-controller="BannerController as bannerCtrl">
+                <div class="sign-in" >
+                    <div class="price">
+                        <div>Запишитесь сейчас!</div>
+                        Всего<b>{{bannerCtrl.info.price}}</b><span>грн</span>
+                    </div>
+                    <form action="ajax/contact.php" method="post" class="ajax">
+                        <input type="text" class='phoneValue' name="phone">
+                        <button type="submit" class="submit-btn">Запсаться</button>
+                    </form>
+                </div>
             </section>
         </div>
     </div>

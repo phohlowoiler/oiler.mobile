@@ -76,10 +76,26 @@
 		},
 
 		setup: function(){
+			
+			// toggle placeholder
+			$( phoneValidation.common.field )
+			.focus(function(){
+				$(this).attr('placeholder', '');
+			})
+			.blur(function(){
+				if( !$(this).val() ){
+					$(this).attr('placeholder', phoneValidation.common.placeholder);
+				}
+			}); 
+			
 			// mask field in input
 			$( phoneValidation.common.field ).mask( phoneValidation.common.mask, { placeholder: phoneValidation.common.placeholder } );
 			// submiting form
 			$( phoneValidation.common.submit ).on('click', phoneValidation.validate);
+		},
+
+		togglePlaceholder: function(){
+			$(this)
 		},
 
 		validate: function(event){

@@ -26,8 +26,10 @@ body {
   .sign-in form .submit-btn {
     background-color: #ffcb08; }
 
-.allertMessage .fa.fa-times {
-  color: #9a9a9a; }
+.allertMessage {
+  background: #F3F3F3; }
+  .allertMessage .fa.fa-times {
+    color: #9a9a9a; }
 
 .common-section h1,
 .common-section p {
