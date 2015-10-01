@@ -45,5 +45,14 @@ body {
   color: #ffcb08; }
   .common-section .testimonial .stars .grey-star {
     color: #cccccc; }
+.common-section.expierence .subheader {
+  color: #333333; }
+  .common-section.expierence .subheader b {
+    color: #a0ca4c; }
+
+.list-group-item {
+  border-bottom: 1px solid #eaeaea; }
+  .list-group-item .list-dot {
+    background-color: #a0ca4c; }
 
 /*# sourceMappingURL=colors.css.map */

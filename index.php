@@ -13,7 +13,8 @@
     <div id="site-wrapper">
         <!-- site canvas -->
         <div id="site-canvas">
-            <!-- header -->
+
+            <!-- HEADER -->
             <div id="top">
                 <div class="container">
                     <div class="row">
@@ -47,7 +48,8 @@
                     <li><a href="#">СТО</a></li>
                 </ul>
             </div>
-            <!-- banner -->
+
+            <!-- BANNER -->
             <div id="top-banner-wrap">
                 <div id="top-banner " class="form" ng-controller="BannerController as bannerCtrl">
                     <h1>{{bannerCtrl.info.heading}}</h1>
@@ -70,18 +72,20 @@
                     </div>
                 </div>
             </div>
-            <!-- reasons section  -->
+
+            <!-- REASONS SECTION  -->
             <section class="common-section reasons" ng-controller="ReasonsController as reasonsCtrl">
                 <h1>{{reasonsCtrl.getLength()}} ПРИЧИН обслуживаться У НАС</h1>
                 <p>Вы получаете:</p>
-                <ul>
+                <ul class="bgli">
                     <li ng-repeat="reason in reasonsCtrl.reasons"><span class="round">{{$index + 1}}</span> {{reason.name}}</li>
                 </ul>
             </section>
-            <!-- testimonials -->
+
+            <!-- TESTIMONIALS -->
             <section class="common-section testimonials" ng-controller="TestimonialsController as testimonialsCtrl">
                 <h1>Отзывы клиентов</h1>
-                <ul>
+                <ul class="bgli">
                     <li class="testimonial" ng-repeat="testimonial in testimonialsCtrl.testimonials | limitTo: testimonialsCtrl.quantity" >
                         <div class="img">
                             <img ng-src="{{testimonial.img}}" height="35" width="35" alt="">
@@ -103,8 +107,9 @@
                 </ul>
             </section>
 
+            <!-- FORM -->
             <section id="single-form-second" class="common-section form"  ng-controller="BannerController as bannerCtrl">
-                <div class="sign-in" >
+                <div class="sign-in section-bg" >
                     <div class="price">
                         <div>Запишитесь сейчас!</div>
                         Всего<b>{{bannerCtrl.info.price}}</b><span>грн</span>
@@ -115,15 +120,37 @@
                     </form>
                 </div>
             </section>
-        </div>
-    </div>
+
+            <!-- GRAPH -->
+            <section class="common-section expierence">
+                <h1>Наш опыт</h1>
+                <div class="section-bg">
+                    <div class="subheader">Количество обслуживаемых машин: <b>23 в день</b></div>
+                    <img src="img/graph.png" height="108" width="253" alt="">
+                </div>
+
+                <h3 class="subheader">В 2014 году мы:</h3>
+                <div class="list-bg">
+                    <ul class="list-group">
+                      <li class="list-group-item"><span class="item-text"><span class="list-dot"></span>Провели замен масла </span><span class="total">22222</span></li>
+                      <li class="list-group-item"><span class="item-text"><span class="list-dot"></span>Dapibus ac facilisis </span><span class="total">22222</span></li>
+                      <li class="list-group-item"><span class="item-text"><span class="list-dot"></span>Поменяли воздушных фильтров</span><span class="total">22222</span></li>
+                      <li class="list-group-item"><span class="item-text"><span class="list-dot"></span>Porta ac consectetur</span><span class="total">22222</span></li>
+                      <li class="list-group-item"><span class="item-text"><span class="list-dot"></span>Vestibulum at eros</span><span class="total">22222</span></li>
+                  </ul>
+              </div>
+
+          </section>
+
+      </div>
+  </div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="libs/angular.min.js"></script>
-    <script src="js/angular-sanitize.min.js"></script>
-    <script src="js/app/app.js"></script>
-    <script src="libs/jquery.mask.js"></script>
-    <script src="js/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="libs/angular.min.js"></script>
+  <script src="js/angular-sanitize.min.js"></script>
+  <script src="js/app/app.js"></script>
+  <script src="libs/jquery.mask.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
