@@ -2020,11 +2020,12 @@ body {
 #sandwich {
   background-color: #f2f2f2; }
 
-#top-contacts {
-  color: #333333; }
-
 #top {
   background-color: #fff; }
+  #top #top-contacts {
+    color: #333333; }
+    #top #top-contacts .location .fa {
+      color: #ffcb08; }
 
 .burgx,
 .burgx2,
@@ -2070,6 +2071,10 @@ body {
   border-bottom: 1px solid #eaeaea; }
   .list-group-item .list-dot {
     background-color: #a0ca4c; }
+
+#map .location {
+  color: #fff;
+  background-color: #1c1c1c; }
 
 @font-face {
   font-family: "OpenSans";
@@ -2212,12 +2217,14 @@ body {
     font-size: 11px; }
     #top #top-contacts .phone {
       font-size: 12px; }
+    #top #top-contacts .location .fa {
+      margin-right: 4px;
+      font-size: 14px; }
 
 #site-wrapper {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  height: 5000px; }
+  width: 100%; }
   #site-wrapper.show-nav #site-canvas {
     -webkit-transform: translateX(-160px);
     -moz-transform: translateX(-160px);
@@ -2478,7 +2485,7 @@ section {
           transition: all 0.2s ease-in-out; }
   section#single-form-first, section#single-form-second {
     text-align: center;
-    padding-top: 30px; }
+    padding-top: 10px; }
     section#single-form-first .section-bg .price, section#single-form-second .section-bg .price {
       margin-bottom: 10px; }
       section#single-form-first .section-bg .price > div, section#single-form-second .section-bg .price > div {
@@ -2523,8 +2530,8 @@ section {
       display: flex;
       align-items: center; }
       .list-group .list-group-item .item-text .list-dot {
-        width: 5px;
-        height: 5px;
+        width: 4px;
+        height: 4px;
         border-radius: 50%;
         display: inline-block;
         margin-right: 8px; }
@@ -2542,6 +2549,31 @@ section {
   padding: 0px 0px;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); }
+
+#map {
+  margin-top: 60px;
+  height: 100%;
+  text-align: center; }
+  #map .location {
+    padding: 10px; }
+    #map .location .fa {
+      font-size: 14px;
+      margin-right: 4px; }
+  #map iframe {
+    height: 400px;
+    width: 100%; }
+
+.footer {
+  text-align: center; }
+  .footer .time {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    margin-top: 26px; }
+  .footer span {
+    display: block;
+    margin-bottom: 26px;
+    font-size: 10px; }
 
 .top-left {
   float: left;

@@ -1,16 +1,19 @@
 (function(){
 
 	angular.module('mobileApp', ['ngSanitize'])
+		// top banner info
 		.controller('BannerController', function(){
 			this.items = bannerItems;
 			this.info = bannerInfo;
 		})
+		//Reasons why we
 		.controller('ReasonsController', function(){
 			this.reasons = reasonsItems;
 			this.getLength = function(){
 				return this.reasons.length;
 			};
 		})
+		// testimonials
 		.controller('TestimonialsController', function(){
 			this.testimonials = testimonialsItems;
 			this.limit = "74";
@@ -18,24 +21,25 @@
 			this.moreQuantityText = "Еще отзывы";
 
 
-			var	minLimit = 74,
-				maxLimit = 200,
-				minQuantity = 3;
+			var	minLimit = 74, // limit of chars in hide testimonial
+				maxLimit = 200, // limit of chars in open testimonial
+				minQuantity = 3; // minimum quantity of testimonial on page 
 
 			this.toggleLimit = function(index){
 				var elementt = this.testimonials[index];
 
-				//show
+				//show testimonial
 				if( elementt.limit <= minLimit){
 					elementt.limit = maxLimit;
 					angular.element('.testimonials').find('.fa-chevron-down').eq(index).addClass('toggleup');
-				//hide
+				//hide testimonial
 				}else{
 					elementt.limit = minLimit;
 					angular.element('.testimonials').find('.fa-chevron-down').eq(index).removeClass('toggleup');
 				}
 				
 			};
+
 			this.checkLength = function(index){
 				return this.testimonials[index].text.length > minLimit;
 			};
@@ -53,51 +57,17 @@
 				} else {
 					this.quantity += 1;
 				}
-
-
-
-					// console.log("this quantity is:" + this.quantity);
-				 //   makeSSS();
 			};
-
-			this.createStars = function(index, number_of_stars){
-				var starElement = angular.element('<i class="fa fa-star"></i>');
-				var star = angular.element('.testimonials').find('.stars').eq(index);
-
-				console.log(star);
-				
-			};
-
 
 		})
-		// .filter('myFilter', function($filter){
-		// 	return function(input, limit){
-		// 		if( input.length < limit ){ return input; }
-		// 		return $filter('limitTo')(input, limit) + '...';
-		// 	};
-		// });
-
-
-// function makeSSS(){
-// 	var a = angular.element('.testimonials').find('.stars');
-
-// 	console.log("But stars are:" + a.length);
-
-
-// 	angular.forEach(a, function(value, key){
-// 		var starsAmount = angular.element(value).html();
-// 		console.log("---------Start---------");
-// 			console.log(starsAmount);
-// 		console.log("---------End---------");
-// 	});
-
-	
-// }
-
-
-// angular.element(document).ready(function(){
-// 	makeSSS();
-// });
+		// list items
+		.controller('ExpierenceController', function( $scope ){
+			$scope.items = expierenceItems;
+		})
+		// total
+		.controller('TotalController', function( $scope ){
+			$scope.items = totalItems;
+		})
 
 
 // BannerController data
@@ -181,6 +151,23 @@
 			"isClose": "false",
 			"limit": "74"
 		}
+	];
+
+	var expierenceItems = [
+		{"title": "Провели замен масла", "qnt": "3621"},
+		{"title": "Сделали диагностик авто", "qnt": "3131"},
+		{"title": "Поменяли воздушныхфильтров", "qnt": "2003"},
+		{"title": "Поменяли топливных фильтров", "qnt": "1191"},
+		{"title": "Поменяли фильтров салона", "qnt": "873"},
+		{"title": "Продали литров масла", "qnt": "33396"}
+	];
+
+	var totalItems = [
+		{"name" : "Персонального менеджера"},
+		{"name" : "Гарантию на товары и услуги"},
+		{"name" : "Уверенность в сотрудничестве"},
+		{"name" : "Больше чем услугу по замене"},
+		{"name" : "Гарантию"}
 	];
 })();
 

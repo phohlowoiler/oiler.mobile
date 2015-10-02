@@ -4,11 +4,12 @@ body {
 #sandwich {
   background-color: #f2f2f2; }
 
-#top-contacts {
-  color: #333333; }
-
 #top {
   background-color: #fff; }
+  #top #top-contacts {
+    color: #333333; }
+    #top #top-contacts .location .fa {
+      color: #ffcb08; }
 
 .burgx,
 .burgx2,
@@ -54,5 +55,9 @@ body {
   border-bottom: 1px solid #eaeaea; }
   .list-group-item .list-dot {
     background-color: #a0ca4c; }
+
+#map .location {
+  color: #fff;
+  background-color: #1c1c1c; }
 
 /*# sourceMappingURL=colors.css.map */

@@ -109,12 +109,16 @@ body
   font-size: 11px
   .phone
    font-size: 12px
+  .location
+   .fa
+    margin-right: 4px
+    font-size: 14px
 
 #site-wrapper
  position: relative
  overflow: hidden
  width: 100%
- height: 5000px
+ //height: 5000px
  &.show-nav
   #site-canvas
    @include transform( translateX(-$menuMove) )
@@ -360,7 +364,7 @@ section
  &#single-form-first,
  &#single-form-second
   text-align: center
-  padding-top: 30px
+  padding-top: 10px
   .section-bg
    .price
     margin-bottom: 10px
@@ -407,8 +411,8 @@ section
    display: flex
    align-items: center
    .list-dot
-    width: 5px
-    height: 5px
+    width: 4px
+    height: 4px
     border-radius: 50%
     display: inline-block
     margin-right: 8px
@@ -428,6 +432,29 @@ section
  border-radius: 6px
  box-shadow: 0 2px 6px rgba(0,0,0,0.3)
 
+#map
+ margin-top: 60px
+ height: 100%
+ text-align: center
+ .location
+  padding: 10px
+  .fa
+   font-size: 14px
+   margin-right: 4px
+ iframe
+  height: 400px
+  width: 100%
+.footer
+ text-align: center
+ .time
+  display: flex
+  justify-content: space-around
+  margin-bottom: 20px
+  margin-top: 26px
+ span
+  display: block
+  margin-bottom: 26px
+  font-size: 10px
 
 
 .top-left
@@ -436,3 +463,4 @@ section
 .top-right
  float: right
  text-align: right
+
