@@ -1,5 +1,7 @@
 (function($){
 
+	//$.mobile.autoInitializePage = false;
+
 	var sandwich = {
 		init: function(value){
 			sandwich.common = {
@@ -28,34 +30,34 @@
 	sandwich.init();
 
 
-	var windowResize = {
-		init: function(value){
-			windowResize.common = {
-				w: window,
-				maxHeight: 620,
-				top: '#top',
-				bannerWrap: '#top-banner-wrap'
-			};
+	// var windowResize = {
+	// 	init: function(value){
+	// 		windowResize.common = {
+	// 			w: window,
+	// 			maxHeight: 620,
+	// 			top: '#top',
+	// 			bannerWrap: '#top-banner-wrap'
+	// 		};
 
-			$.extend(windowResize.common, value);
-			windowResize.setup();
-		},
+	// 		$.extend(windowResize.common, value);
+	// 		windowResize.setup();
+	// 	},
 
-		setup: function(){
-			var w = $( windowResize.common.w );
-			w.resize( windowResize.scaleWindowHeight );
-		},
+	// 	setup: function(){
+	// 		var w = $( windowResize.common.w );
+	// 		w.resize( windowResize.scaleWindowHeight );
+	// 	},
 
-		scaleWindowHeight: function(){
-			if( +$( this ).height() < windowResize.common.maxHeight ){
-				$( windowResize.common.bannerWrap ).css({
-					'height': +$( this ).height() - +$( windowResize.common.top ).outerHeight()
-				});
-			}
-		}
-	};
+	// 	scaleWindowHeight: function(){
+	// 		if( +$( this ).height() < windowResize.common.maxHeight ){
+	// 			$( windowResize.common.bannerWrap ).css({
+	// 				'height': +$( this ).height() - +$( windowResize.common.top ).outerHeight()
+	// 			});
+	// 		}
+	// 	}
+	// };
 
-	windowResize.init();
+	// windowResize.init();
 
 	var phoneValidation = {
 		init: function(value){
@@ -94,17 +96,15 @@
 			$( phoneValidation.common.submit ).on('click', phoneValidation.validate);
 		},
 
-		togglePlaceholder: function(){
-			$(this)
-		},
-
 		validate: function(event){
 			var btn = $( this ),
-				form = btn.closest('form').filter('.ajax'),
-				phone = form.find( phoneValidation.common.field ),
-				message = $("<div><p></p><i class='fa fa-times'></i></div>");
+			form = btn.closest('form').filter('.ajax'),
+			phone = form.find( phoneValidation.common.field ),
+			message = $("<div><p></p><i class='fa fa-times'></i></div>");
 
-			message.on('click', phoneValidation.removeMessage);
+			btn.addClass('active');
+			$( '.' + phoneValidation.common.invalidMessageClass ).remove();
+			message.on('click', { button: btn }, phoneValidation.removeMessage);
 
 			// if invalid
 			if( phoneValidation.checkLength( phone.val() ) ){
@@ -116,8 +116,8 @@
 				event.preventDefault();
 			}else{
 				var url = form.attr('action'),
-					type = form.attr('method'),
-					data = {};
+				type = form.attr('method'),
+				data = {};
 
 				form.find('[name]').each(function(index, value){
 					var that = $( this ),
@@ -134,6 +134,7 @@
 					data: data,
 					success: function(response){
 						$( phoneValidation.common.field ).val('');
+						window.location.href = 'return.php';
 						// message.text( phoneValidation.common.validMessageText );
 						// message.addClass( phoneValidation.common.invalidMessageClass );
 						// btn.after(message);
@@ -144,8 +145,10 @@
 			}
 		},
 
-		removeMessage: function(){
+		removeMessage: function(obj){
 			$( this ).remove();
+			var btn = obj.data.button;
+			btn.removeClass('active');
 		},
 
 		checkLength: function( phoneLength ){
@@ -155,19 +158,49 @@
 
 	};
 
+	phoneValidation.init();
 
-
-
-phoneValidation.init();
-
-
-
+	// for desctops 
+	$("#map").on('click', function(){
+		$(this).find('iframe').css('pointer-events', 'all');
+	})
+	.on('mouseleave', function(){
+		$(this).find('iframe').css('pointer-events', 'none');
+	});
+	
+	//for mobile
+	// $("#map").on('taphold', function(){
+	// 	$(this).find('iframe').toggleClass('taped');
+	// 		console.log('ON');
+	// })
+	// .on('vmouseout', function(){
+	// 	$(this).find('iframe').removeClass('taped');
+	// 	console.log('OFF');
+	// });
+	$('#button-top').click(function(event) {
+		event.preventDefault();
+	$('html, body').animate({scrollTop:0}, 500); // Scroll speed to the top
+	});
 
 
 })(jQuery);
 
-// $(window).load(function(){
-// 		$('.fa-chevron-down').on('click', function(){
-// 			$(this).toggleClass('toggleup');
-// 	});
+// $(window).scroll(function(){
+// 	var wHeight = $(document).height() - 600;
+// 	var y = $( this ).scrollTop();
+
+// 	if( y >= wHeight ){
+// 		$('#button-top').fadeIn('slow');
+// 	}else{
+// 		$('#button-top').fadeOut('fast');
+// 	}
 // });
+
+$(window).load(function(){
+	
+	function hidePreload(){
+		$('.fade-wrap').fadeOut('slow', 'swing');
+	}
+	//IMPORTANT SHOW
+	hidePreload();
+});

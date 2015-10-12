@@ -1,0 +1,7 @@
+<section class="common-section reasons">
+	<h1>{{reasonsCtr.getLength()}} ПРИЧИН обслуживаться У НАС</h1>
+	<p>{{reasonsCtr.supportText}}</p>
+	<ul class="bgli li-two-colls clearfix">
+		<li class="col-sm-6" ng-repeat="reason in reasonsCtr.reasons"><span class="round">{{$index + 1}}</span> {{reason.name}}</li>
+	</ul>
+</section>

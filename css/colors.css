@@ -24,8 +24,12 @@ body {
 
 .sign-in form {
   color: #333333; }
-  .sign-in form .submit-btn {
-    background-color: #ffcb08; }
+
+.submit-btn {
+  background-color: #ffcb08;
+  color: #333333; }
+  .submit-btn.active {
+    background-color: #EABA04; }
 
 .allertMessage {
   background: #F3F3F3; }
@@ -38,6 +42,8 @@ body {
 .common-section li .round {
   color: #a0ca4c;
   border: 1px solid #a0ca4c; }
+.common-section .showMore {
+  background-color: #DDDDDD; }
 .common-section .testimonial .person {
   color: #333333; }
   .common-section .testimonial .person .date {
@@ -56,7 +62,7 @@ body {
   .list-group-item .list-dot {
     background-color: #a0ca4c; }
 
-#map .location {
+#map-area .location {
   color: #fff;
   background-color: #1c1c1c; }
 

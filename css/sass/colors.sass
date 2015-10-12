@@ -9,14 +9,13 @@ $graph-light-grey: #eaeaea //graph help grid
 $black: #333333 
 $green: #a0ca4c
 $yellow: #ffcb08
+$yellow-d: #EABA04
 
 body
  color: $primary-color
 
 #sandwich
  background-color: $light-grey
-
-
 
 #top
  background-color: #fff
@@ -40,8 +39,12 @@ body
 .sign-in
  form
   color: $black
-  .submit-btn
-   background-color: $yellow
+
+.submit-btn
+ background-color: $yellow
+ color: $black
+ &.active
+  background-color: $yellow-d
 
 .allertMessage
  background: #F3F3F3
@@ -56,6 +59,8 @@ body
   .round
    color: $green
    border: 1px solid $green
+ .showMore
+  background-color: #DDDDDD
  .testimonial
   .person
    color: $black
@@ -76,7 +81,7 @@ body
  .list-dot
   background-color: $green
 
-#map
+#map-area
  .location
   color: #fff
   background-color: $dark-grey

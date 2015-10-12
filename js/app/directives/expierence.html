@@ -1,0 +1,21 @@
+<section class="common-section expierence">
+    <div class="row clearfix">
+        <h1>Наш опыт</h1>
+        <div class="section-bg">
+            <div class="subheader">Количество обслуживаемых машин: <b>23 в день</b></div>
+            <img src="img/graph.png" height="108" width="253" alt="">
+        </div>
+        <!-- expierence -->
+        <h3 class="subheader">В 2014 году мы:</h3>
+        <div class="list-bg">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="item in expCtr.items">
+                    <span class="item-text">
+                        <span class="list-dot"></span>{{item.title}}
+                    </span>
+                    <span class="total">{{item.qnt}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

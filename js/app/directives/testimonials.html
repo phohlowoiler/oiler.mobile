@@ -1,0 +1,23 @@
+<section id="testimonials" class="common-section testimonials">
+    <div class="row">
+        <h1>Отзывы клиентов</h1>
+        <ul class="bgli li-two-colls clearfix">
+            <li class="testimonial col-sm-6 " ng-repeat="testimonial in testimonialsCtr.testimonials | limitTo: testimonialsCtr.quantity" >
+                <div class="img">
+                    <img ng-src="{{testimonial.img}}" height="35" width="35" alt="">
+                </div>
+                <div class="content">
+                    <div class="person">{{testimonial.name}}
+                        <span class="date">{{testimonial.date}}</span>
+                    </div>
+                    <div class="stars" ng-bind-html="testimonial.stars"></div>
+                    <div class="text">
+                        <span>{{testimonial.text | limitTo: testimonial.limit }}{{ testimonialsCtr.makeDots($index) }}</span>
+                        <i class="fa fa-chevron-down " ng-click="testimonialsCtr.toggleLimit($index)" ng-show="testimonialsCtr.checkLength($index)"></i>
+                    </div>
+                </div>
+            </li>
+            <button ng-show="testimonialsCtr.testimonials.length" scroll-to class="showMore col-sm-6" ng-click="testimonialsCtr.changeQuantity() ">{{testimonialsCtr.moreQuantityText}}</button>
+        </ul>
+    </div>
+</section>
